@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -13,11 +13,17 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  getNews(): Observable<News[]> {
-    return this.http.get<News[]>(this.url);
+  getNews(page: number, limit: number): Observable<News[]> {
+    const params = {
+      _page: page,
+      _limit: limit,
+      _sort: "ID"
+    };
+
+    return this.http.get<News[]>(this.url, { params });
   }
 
-  getNewsById(id: string): Observable<News[]> {
-    return this.http.get<News[]>(`${this.url}/${id}`);
+  getNewsById(id: string): Observable<News> {
+    return this.http.get<News>(`${this.url}/${id}`);
   }
 }

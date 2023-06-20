@@ -3,6 +3,6 @@
         <button mat-raised-button color="accent">Add News</button>
     </div>
     <div class="news-container">
-        <app-news-card></app-news-card>
+        <app-news-card *ngFor="let news of newsList" [news]="news"></app-news-card>
     </div>
 </section>
