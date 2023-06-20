@@ -1,3 +1,28 @@
 .card-box {
     display: flex;
+    width: 100%;
+    padding: 24px;
+    gap: 12px;
+
+    .image-box .img {
+        width: 160px;
+    }
+
+    .news-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .news-title {
+            display: flex;
+        }
+
+        &-header {
+            display: flex;
+
+            .news-icon-info {
+                display: flex;
+            }
+        }
+    }
 }

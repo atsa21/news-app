@@ -1,3 +1,21 @@
-<div class="card-box">
-
+<div *ngIf="news" class="card-box">
+    <div class="image-box">
+        <img [src]="news.image" class="img"/>
+    </div>
+    <div class="news-info">
+        <div class="news-info-header">
+            <div class="news-icon-info">
+                <mat-icon>calendar_today</mat-icon>
+                <span>{{ news.date | date }}</span>
+            </div>
+            <div class="news-icon-info">
+                <mat-icon>remove_red_eye</mat-icon>
+                <span>{{ news.viewCount }}</span>
+            </div>
+        </div>
+        <h2 class="news-title">{{ news.title }}</h2>
+        <div class="news-tags">
+            <span *ngFor="let tag of news.tags">{{ tag.title }}</span>
+        </div>
+    </div>
 </div>

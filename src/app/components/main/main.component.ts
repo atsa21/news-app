@@ -25,6 +25,6 @@ export class MainComponent implements OnInit {
   setNews(): void {
     this.newsService.getNews(this.page, this.limit).pipe(take(1)).subscribe((res: News[]) => {
       this.newsList = res;
-    })
+    });
   }
 }
