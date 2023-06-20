@@ -4,15 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
+import { NewsPageComponent } from './components/main/news-page/news-page.component';
+import { NewsCardComponent } from './components/main/news-card/news-card.component';
+import { AddNewsDialogComponent } from './components/main/add-news-dialog/add-news-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialsModule } from './angular-materials.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    NewsPageComponent,
+    NewsCardComponent,
+    AddNewsDialogComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AngularMaterialsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
