@@ -29,7 +29,11 @@ export class NewsPageComponent implements OnInit {
 
   setNews(): void {
     this.newsService.getNewsById(this.newsId).pipe(take(1)).subscribe((res: News[]) => {
-      if(res.length) this.news = res[0];
+      if(res.length) {
+        this.news = res[0];
+      } else {
+        this.news = JSON.parse(localStorage.getItem('news') as string);
+      };
     });
   }
 

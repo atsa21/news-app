@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
   newsList: News[] = [];
   lastNewsList: News[] = [];
   newsAmount = 0;
-  page = 1;
+  page!: number;
   limit = 3;
   isNextPageExist = false;
   isNewNewsAdded = false;
@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.page = localStorage.getItem('page') ? Number(localStorage.getItem('page')) : 1;
     this.setNews();
   }
 
@@ -45,6 +46,7 @@ export class MainComponent implements OnInit {
       this.newsList = res.news;
       this.newsAmount = res.totalItems;
       this.checkNextPage();
+      localStorage.setItem('page', this.page.toString());
       if(this.page === 1) {
         this.lastNewsId = this.newsList[0].ID;
         this.lastNewsList = res.news;
@@ -79,22 +81,24 @@ export class MainComponent implements OnInit {
 
   setNewNews(dialogRef: MatDialogRef<AddNewsDialogComponent>): void {
     dialogRef.afterClosed().pipe(take(1)).subscribe(res => {
-      const newId = Number(this.lastNewsId) - 1;
-      const now = new Date().toString();
-      const newNews: News = {
-        ID: newId.toString(),
-        title: res.title,
-        description: res.description,
-        date: now,
-        link: '',
-        isTop: false,
-        commentsCount: 0,
-        viewCount: 0,
-        tags: []
-      };
-      localStorage.setItem('news', JSON.stringify(newNews));
-      this.checkLocalStore();
-      this.page = 1;
+      if(res) {
+        const newId = Number(this.lastNewsId) - 1;
+        const now = new Date().toString();
+        const newNews: News = {
+          ID: newId.toString(),
+          title: res.title,
+          description: res.description,
+          date: now,
+          link: '',
+          isTop: false,
+          commentsCount: 0,
+          viewCount: 0,
+          tags: []
+        };
+        localStorage.setItem('news', JSON.stringify(newNews));
+        this.checkLocalStore();
+        this.page = 1;
+      }
     })
   }
 }

@@ -7,7 +7,7 @@
     </div>
     <section class="news-box">
         <div class="news-img">
-            <img [src]="news.imageSource" class="img"/>
+            <img [src]="news.imageSource ? news.imageSource : 'assets/img/default-img.svg'" class="img"/>
         </div>
         <div class="news-text-box">
             <div class="news-info-header">
