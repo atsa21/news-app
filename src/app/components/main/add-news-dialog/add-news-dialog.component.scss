@@ -4,8 +4,9 @@
     justify-content: space-between;
     padding-top: 12px;
 
-    h1 {
+    .title-h1 {
         padding-right: 12px;
+        font-size: 36px;
     }
 
     .btn-close {
@@ -27,4 +28,16 @@
     flex-direction: column;
     margin-top: 12px;
     gap: 12px;
+}
+
+@media (max-width: 640px) {
+    .header .title-h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 420px) {
+    .header .title-h1 {
+        font-size: 18px;
+    }
 }
