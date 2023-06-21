@@ -23,11 +23,11 @@
         transition: all 0.3s ease-in-out;
 
         .news-title {
-            max-width: 700px;
+            max-width: 900px;
             font-size: 18px;
             font-weight: 500;
             line-height: 24px;
-            height: 42px;
+            height: 48px;
             margin: 0;
             text-overflow: ellipsis;
             -webkit-line-clamp: 2;
@@ -74,5 +74,11 @@
                 color: var(--white);
             }
         }
+    }
+}
+
+@media (max-width: 1020px) {
+    .card-box .news-info .news-title {
+        font-size: 16px;
     }
 }

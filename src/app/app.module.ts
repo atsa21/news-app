@@ -13,6 +13,7 @@ import { AngularMaterialsModule } from './angular-materials.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './components/shared/shared.module';
 import { DatePipe } from '@angular/common';
+import { EllipsisModule } from 'ngx-ellipsis';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DatePipe } from '@angular/common';
     BrowserAnimationsModule,
     AngularMaterialsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    EllipsisModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -28,5 +28,16 @@
             width: 100%;
         }
     }
+}
 
+@media (max-width: 1240px) {
+    .main-container .main-box {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .main-container .main-box {
+        max-width: 100%;
+    }
 }
