@@ -29,8 +29,6 @@
             line-height: 24px;
             height: 48px;
             margin: 0;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 2;
             transition: font-weight 0.3s ease-in-out;
         }
 
@@ -80,5 +78,19 @@
 @media (max-width: 1020px) {
     .card-box .news-info .news-title {
         font-size: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .card-box {
+        flex-direction: column;
+
+        .news-info .news-title {
+            height: 106px;
+        }
+
+        .image-box .img {
+            width: 100%;
+        }
     }
 }

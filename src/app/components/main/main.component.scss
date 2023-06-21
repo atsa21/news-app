@@ -19,6 +19,11 @@
             width: 100%;
             padding-bottom: 12px;
             border-bottom: 1px solid var(--black);
+
+            .title-h1 {
+                font-size: 36px;
+                font-weight: 500;
+            }
         }
     
         .news-container {
@@ -39,5 +44,21 @@
 @media (max-width: 1020px) {
     .main-container .main-box {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .main-container {
+        padding: 0 24px;
+    }
+}
+
+@media (max-width: 400px) {
+    .main-container {
+        padding: 0 18px;
+
+        .main-box .news-header .title-h1 {
+            font-size: 24px;
+        }
     }
 }

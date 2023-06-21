@@ -9,7 +9,8 @@
 
     .header {
         display: flex;
-        width: 1240px;
+        width: 100%;
+        max-width: 1240px;
     }
 
     .news-box {
@@ -23,11 +24,12 @@
         .news-img {
             display: flex;
             flex-direction: column;
+            width: 40%;
             padding-right: 24px;
             border-right: 1px solid var(--black);
 
             .img {
-                width: 380px;
+                width: 100%;
                 border: 1px solid var(--black);
             }
         }
@@ -35,6 +37,7 @@
         .news-text-box {
             display: flex;
             flex-direction: column;
+            width: 60%;
             gap: 18px;
 
             .news-info-header {
@@ -66,6 +69,68 @@
                 flex-direction: column;
                 gap: 24px;
             }
+        }
+    }
+}
+
+.title-h1 {
+    font-size: 36px;
+}
+
+@media (max-width: 1240px) {
+    .news-page {
+        .news-box,
+        .header {
+            max-width: 960px;
+        }
+    }
+
+    .title-h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .news-page {
+        .news-box,
+        .header {
+            max-width: 100%;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .news-page {
+        padding: 24px;
+
+        .news-box {
+            flex-direction: column;
+
+            .news-text-box,
+            .news-img {
+                width: 100%;
+            }
+
+            .news-img {
+                padding-right: 0;
+                padding-bottom: 24px;
+                border-right: 0px solid var(--black);
+                border-bottom: 1px solid var(--black);
+            }
+        }
+    }
+
+    .title-h1 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    .main-container {
+        padding: 0 18px;
+
+        .main-box .news-header .title-h1 {
+            font-size: 24px;
         }
     }
 }
