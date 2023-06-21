@@ -126,11 +126,7 @@
 }
 
 @media (max-width: 400px) {
-    .main-container {
-        padding: 0 18px;
-
-        .main-box .news-header .title-h1 {
-            font-size: 24px;
-        }
+    .news-page {
+        padding: 24px 18px;
     }
 }
