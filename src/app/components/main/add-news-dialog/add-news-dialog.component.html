@@ -32,6 +32,6 @@
                 <app-error-input *ngIf="getIsControlInvalid('description')" [validator]="getControl('description')"/>
             </span>
         </div>
-        <button class="btn btn-accent" [disabled]="newsForm.invalid">Додати</button>
+        <button class="btn btn-accent" [disabled]="newsForm.invalid" (click)="addNews()">Додати</button>
     </form>
 </mat-dialog-content>

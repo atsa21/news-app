@@ -10,10 +10,10 @@ export interface News {
     commentsCount: number;
     viewCount: number;
     tags: Tags[];
-    image: string;
-    imageSource: string;
-    imageSmall: string;
-    imageMiddle: string;
+    image?: string;
+    imageSource?: string;
+    imageSmall?: string;
+    imageMiddle?: string;
 }
 
 export interface NewsDto {

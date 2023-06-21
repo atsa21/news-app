@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-news-dialog',
@@ -10,7 +11,10 @@ export class AddNewsDialogComponent implements OnInit {
 
   newsForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private dialogRef: MatDialogRef<AddNewsDialogComponent>
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -30,5 +34,11 @@ export class AddNewsDialogComponent implements OnInit {
 
   getIsControlInvalid(controlName: string): boolean {
     return this.getControl(controlName).touched && this.getControl(controlName).invalid;
+  }
+
+  addNews(): void {
+    if(this.newsForm.valid) {
+      this.dialogRef.close(this.newsForm.value);
+    }
   }
 }

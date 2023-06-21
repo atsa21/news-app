@@ -1,17 +1,16 @@
 .main-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     min-height: 100vh;
+    padding: 0 64px;
     color: var(--black);
 
     .main-box {
         display: flex;
         flex-direction: column;
         gap: 24px;
+        width: 100%;
         max-width: 1240px;
-        padding: 24px 64px;
+        padding: 24px 0;
 
         .news-header {
             display: flex;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { News, NewsDto } from 'src/app/models/news.interface';
 import { NewsService } from 'src/app/services/news.service';
 import { take } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddNewsDialogComponent } from './add-news-dialog/add-news-dialog.component';
 
 @Component({
@@ -13,10 +13,13 @@ import { AddNewsDialogComponent } from './add-news-dialog/add-news-dialog.compon
 export class MainComponent implements OnInit {
 
   newsList: News[] = [];
+  lastNewsList: News[] = [];
   newsAmount = 0;
   page = 1;
   limit = 3;
   isNextPageExist = false;
+  isNewNewsAdded = false;
+  lastNewsId!: string;
 
   constructor(
     private newsService: NewsService,
@@ -27,11 +30,26 @@ export class MainComponent implements OnInit {
     this.setNews();
   }
 
+  checkLocalStore(): void {
+    this.isNewNewsAdded = !!localStorage.getItem('news');
+    if(this.isNewNewsAdded) {
+      const newNews = JSON.parse(localStorage.getItem('news') as string);
+      this.lastNewsList.unshift(newNews);
+      this.lastNewsList.pop();
+      this.newsList = this.lastNewsList;
+    }
+  }
+
   setNews(): void {
     this.newsService.getNews(this.page, this.limit).pipe(take(1)).subscribe((res: NewsDto) => {
       this.newsList = res.news;
       this.newsAmount = res.totalItems;
       this.checkNextPage();
+      if(this.page === 1) {
+        this.lastNewsId = this.newsList[0].ID;
+        this.lastNewsList = res.news;
+        this.checkLocalStore();
+      }
     });
   }
 
@@ -56,5 +74,27 @@ export class MainComponent implements OnInit {
     const dialogRef = this.dialog.open(AddNewsDialogComponent, {
       panelClass: 'add-news-dialog'
     });
+    this.setNewNews(dialogRef);
+  }
+
+  setNewNews(dialogRef: MatDialogRef<AddNewsDialogComponent>): void {
+    dialogRef.afterClosed().pipe(take(1)).subscribe(res => {
+      const newId = Number(this.lastNewsId) - 1;
+      const now = new Date().toString();
+      const newNews: News = {
+        ID: newId.toString(),
+        title: res.title,
+        description: res.description,
+        date: now,
+        link: '',
+        isTop: false,
+        commentsCount: 0,
+        viewCount: 0,
+        tags: []
+      };
+      localStorage.setItem('news', JSON.stringify(newNews));
+      this.checkLocalStore();
+      this.page = 1;
+    })
   }
 }

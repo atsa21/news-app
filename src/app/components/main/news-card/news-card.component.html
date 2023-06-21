@@ -1,6 +1,6 @@
 <div *ngIf="news" class="card-box" (click)="goToNewsPage()">
     <div class="image-box">
-        <img [src]="news.image" class="img"/>
+        <img [src]="news.image ? news.image : 'assets/img/default-img.svg'" class="img"/>
     </div>
     <div class="news-info">
         <div class="news-info-header">
