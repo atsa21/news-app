@@ -1,1 +1,37 @@
-<p>add-news-dialog works!</p>
+<div class="header" mat-dialog-title>
+    <h1>Додати новину</h1>
+    <button mat-dialog-close class="d-flex-center btn-close">
+        <mat-icon>clear</mat-icon>
+    </button>
+</div>
+<mat-dialog-content>
+    <form [formGroup]="newsForm" class="form-box">
+        <div class="input-box">
+            <label>Заголовок<span class="error-color">*</span></label>
+            <input 
+                formControlName="title"
+                class="input" 
+                placeholder="Введіть заголовок" 
+                [ngClass]="{ 'input-invalid' : getIsControlInvalid('title')}" 
+                required
+            />
+            <span class="error-box">
+                <app-error-input *ngIf="getIsControlInvalid('title')" [validator]="getControl('title')"/>
+            </span>
+        </div>
+        <div class="input-box">
+            <label>Опис<span class="error-color">*</span></label>
+            <textarea 
+            formControlName="description" 
+            class="input text-area" 
+            placeholder="Введіть опис" 
+            [ngClass]="{ 'input-invalid' : getIsControlInvalid('description')}"
+            required
+            ></textarea>
+            <span class="error-box">
+                <app-error-input *ngIf="getIsControlInvalid('description')" [validator]="getControl('description')"/>
+            </span>
+        </div>
+        <button class="btn btn-accent" [disabled]="newsForm.invalid">Додати</button>
+    </form>
+</mat-dialog-content>

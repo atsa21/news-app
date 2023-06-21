@@ -2,13 +2,13 @@
     <div class="main-box">
         <div class="news-header">
             <h1>Новини</h1>
-            <button class="btn btn-accent">Додати новину</button>
+            <button class="btn btn-accent" (click)="openAddNews()">Додати новину</button>
         </div>
         <div class="news-container">
             <button *ngIf="page > 1" class="btn-icon" (click)="setPrevNews()">
                 <mat-icon class="icon">keyboard_arrow_up</mat-icon>
             </button>
-            <app-news-card *ngFor="let news of newsList" [news]="news" class="card"></app-news-card>
+            <app-news-card *ngFor="let news of newsList" [news]="news" class="card"/>
             <button *ngIf="isNextPageExist" class="btn-icon" (click)="setNextNews()">
                 <mat-icon class="icon">keyboard_arrow_down</mat-icon>
             </button>

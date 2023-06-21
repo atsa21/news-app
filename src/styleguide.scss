@@ -26,9 +26,15 @@
     color: var(--white);
     background-color: var(--black);
 
-    &:hover {
+    &:hover:active {
         background-color: var(--accent);
         box-shadow: 2px 2px var(--black);
+    }
+
+    &:disabled {
+        cursor: default;
+        color: var(--grey);
+        background-color: var(--light-grey);
     }
 }
 
@@ -37,6 +43,11 @@
     gap: 12px;
     border-bottom: 1px solid var(--black);
     padding: 12px 10px 12px 0;
+
+    &:hover {
+        color: var(--accent);
+        border-bottom: 1px solid var(--accent);
+    }
 
     .icon {
         display: flex;
@@ -60,4 +71,67 @@
     .icon {
         font-size: 24px;
     }
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+
+    label {
+        color: var(--black);
+    }
+
+    .input {
+        height: 38px;
+        padding: 12px;
+        border: 1px solid var(--black);
+
+        &:focus {
+            border: 1px solid var(--white);
+            outline: 2px solid var(--accent);
+        }
+    }
+
+    .input-invalid {
+        border-color: var(--error);
+    }
+
+    .text-area {
+        height: 200px;
+        resize: none;
+        overflow-y: scroll;
+    }
+}
+
+h1, 
+h2, 
+h3 {
+    margin: 0 !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+h1 {
+    font-size: 36px !important;
+}
+
+.d-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-box {
+    height: 14px;
+}
+
+.error-color {
+    color: var(--error);
+}
+
+.add-news-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 0;
+    border: 1px solid var(--black);
+    box-shadow: 8px 8px var(--black);
+    padding: 18px;
 }

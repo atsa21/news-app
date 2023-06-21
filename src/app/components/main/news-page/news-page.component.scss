@@ -61,8 +61,10 @@
                 }
             }
 
-            .news-title h2 {
-                font-size: 36px;
+            .news-title {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
             }
         }
     }

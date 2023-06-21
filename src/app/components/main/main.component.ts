@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { News, NewsDto } from 'src/app/models/news.interface';
 import { NewsService } from 'src/app/services/news.service';
 import { take } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { AddNewsDialogComponent } from './add-news-dialog/add-news-dialog.component';
 
 @Component({
   selector: 'app-main',
@@ -17,7 +19,8 @@ export class MainComponent implements OnInit {
   isNextPageExist = false;
 
   constructor(
-    private newsService: NewsService
+    private newsService: NewsService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -47,5 +50,11 @@ export class MainComponent implements OnInit {
       this.page--;
       this.setNews();
     }
+  }
+
+  openAddNews(): void {
+    const dialogRef = this.dialog.open(AddNewsDialogComponent, {
+      panelClass: 'add-news-dialog'
+    });
   }
 }
