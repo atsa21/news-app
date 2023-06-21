@@ -16,14 +16,13 @@ export class NewsService {
   getNews(page: number, limit: number): Observable<News[]> {
     const params = {
       _page: page,
-      _limit: limit,
-      _sort: "ID"
+      _limit: limit
     };
 
     return this.http.get<News[]>(this.url, { params });
   }
 
-  getNewsById(id: string): Observable<News> {
-    return this.http.get<News>(`${this.url}/${id}`);
+  getNewsById(id: string): Observable<News[]> {
+    return this.http.get<News[]>(`${this.url}/${id}`);
   }
 }

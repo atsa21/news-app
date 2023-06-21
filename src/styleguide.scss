@@ -1,19 +1,22 @@
 :root {
     --black: rgb(31, 31, 31);
     --light-grey: #f7f7f7;
+    --grey: #7e7e7e;
     --accent: #4258b8;
     --error: #F24535;
     --success: #35BF30;
     --white: rgb(255, 255, 255);
 }
 
-.btn {
+.btn,
+.btn-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 38px;
     padding: 12px 24px;
     border: 0;
+    font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -26,5 +29,35 @@
     &:hover {
         background-color: var(--accent);
         box-shadow: 2px 2px var(--black);
+    }
+}
+
+.btn-link {
+    background-color: transparent;
+    gap: 12px;
+    border-bottom: 1px solid var(--black);
+    padding: 12px 10px 12px 0;
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+    }
+}
+
+.btn-icon {
+    padding: 0;
+    background-color: var(--white);
+    border: 1px solid var(--black);
+
+    &:hover {
+        color: var(--white);
+        background-color: var(--accent);
+        box-shadow: 2px 2px var(--black);
+    }
+
+    .icon {
+        font-size: 24px;
     }
 }

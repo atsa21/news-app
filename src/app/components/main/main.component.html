@@ -6,6 +6,9 @@
         </div>
         <div class="news-container">
             <app-news-card *ngFor="let news of newsList" [news]="news" class="card"></app-news-card>
+            <button class="btn-icon">
+                <mat-icon class="icon">keyboard_arrow_down</mat-icon>
+            </button>
         </div>
     </div>
 </section>

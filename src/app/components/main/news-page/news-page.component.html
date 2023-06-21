@@ -1,1 +1,33 @@
-<p>news-page works!</p>
+<div *ngIf="news" class="news-page">
+    <div class="header">
+        <button class="btn btn-link" (click)="backToAllNews()">
+            <mat-icon class="icon">keyboard_arrow_left</mat-icon>
+            <span>Назад</span>
+        </button>
+    </div>
+    <section class="news-box">
+        <div class="news-img">
+            <img [src]="news.imageSource" class="img"/>
+        </div>
+        <div class="news-text-box">
+            <div class="news-info-header">
+                <div class="news-icon-info">
+                    <mat-icon class="icon">calendar_today</mat-icon>
+                    <span>{{ news.date | date }}</span>
+                </div>
+                <div class="news-icon-info">
+                    <mat-icon class="icon">remove_red_eye</mat-icon>
+                    <span>{{ news.viewCount }}</span>
+                </div>
+                <div class="news-icon-info">
+                    <mat-icon class="icon">remove_red_eye</mat-icon>
+                    <span>{{ news.commentsCount }}</span>
+                </div>
+            </div>
+            <div class="news-title">
+                <h2>{{ news.title }}</h2>
+                <p>{{ news.description }}</p>
+            </div>
+        </div>
+    </section>
+</div>

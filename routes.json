@@ -1,0 +1,5 @@
+{
+    "/api/news": "/news",
+    "/api/news?_page=:page&_limit=:limit": "/news?_page=0&_limit=3&_sort=ID",
+    "/api/news/:ID": "/news/?ID=:ID"
+}

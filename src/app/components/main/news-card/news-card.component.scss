@@ -12,6 +12,7 @@
         width: 180px;
         border: 1px solid var(--black);
         filter: saturate(0);
+        transition: all 0.3s ease-in-out;
     }
 
     .news-info {
@@ -25,6 +26,7 @@
             font-size: 18px;
             font-weight: 500;
             line-height: 24px;
+            height: 42px;
             margin: 0;
             transition: font-weight 0.3s ease-in-out;
         }
@@ -37,6 +39,8 @@
                 display: flex;
                 align-items: center;
                 gap: 4px;
+                color: var(--grey);
+                transition: all 0.3s ease-in-out;
 
                 .icon {
                     display: flex;
@@ -56,8 +60,16 @@
         background-color: var(--accent);
         box-shadow: 4px 4px var(--black);
 
+        .image-box .img {
+            filter: none;
+        }
+
         .news-info {
             color: var(--white);
+
+            &-header .news-icon-info {
+                color: var(--white);
+            }
         }
     }
 }

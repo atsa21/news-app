@@ -1,4 +1,4 @@
-<div *ngIf="news" class="card-box">
+<div *ngIf="news" class="card-box" (click)="goToNewsPage()">
     <div class="image-box">
         <img [src]="news.image" class="img"/>
     </div>
