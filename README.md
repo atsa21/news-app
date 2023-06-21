@@ -1,6 +1,10 @@
-# NewsApp
+# News App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+
+# JSON Server
+
+Run `json-server --watch db.json --routes routes.json` for start JSON server.
 
 ## Development server
 
