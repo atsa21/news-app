@@ -5,8 +5,11 @@
             <button class="btn btn-accent">Додати новину</button>
         </div>
         <div class="news-container">
+            <button *ngIf="page > 1" class="btn-icon" (click)="setPrevNews()">
+                <mat-icon class="icon">keyboard_arrow_up</mat-icon>
+            </button>
             <app-news-card *ngFor="let news of newsList" [news]="news" class="card"></app-news-card>
-            <button class="btn-icon">
+            <button *ngIf="isNextPageExist" class="btn-icon" (click)="setNextNews()">
                 <mat-icon class="icon">keyboard_arrow_down</mat-icon>
             </button>
         </div>

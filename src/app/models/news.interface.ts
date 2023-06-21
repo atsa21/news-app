@@ -15,3 +15,8 @@ export interface News {
     imageSmall: string;
     imageMiddle: string;
 }
+
+export interface NewsDto {
+    news: News[];
+    totalItems: number;
+}
