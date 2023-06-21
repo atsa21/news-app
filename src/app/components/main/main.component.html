@@ -1,8 +1,11 @@
 <section class="main-container">
-    <div class="news-header">
-        <button mat-raised-button color="accent">Додати новину</button>
-    </div>
-    <div class="news-container">
-        <app-news-card *ngFor="let news of newsList" [news]="news" class="card"></app-news-card>
+    <div class="main-box">
+        <div class="news-header">
+            <h1>Новини</h1>
+            <button class="btn btn-accent">Додати новину</button>
+        </div>
+        <div class="news-container">
+            <app-news-card *ngFor="let news of newsList" [news]="news" class="card"></app-news-card>
+        </div>
     </div>
 </section>
